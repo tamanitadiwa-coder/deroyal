@@ -1,1200 +1,391 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>All Services & Prices — De Royal Grillz Grabouw</title>
-  <meta name="description" content="Full price list — silver grillz, gold grillz, false teeth, dentures, piercings, jewellery repair, cash for gold. De Royal Grillz Grabouw SA. 0628076534."/>
-  
-  
-  <style>
-    .filter-bar{
-      display:flex;gap:.6rem;flex-wrap:wrap;
-      justify-content:center;margin:2.5rem 0;
-    }
-    .filter-btn{
-      font-family:var(--ff-sans);font-size:.55rem;
-      letter-spacing:.18em;text-transform:uppercase;
-      padding:.5rem 1.2rem;
-      border:1px solid var(--border);
-      background:transparent;color:var(--muted);
-      cursor:pointer;transition:all .22s;
-    }
-    .filter-btn:hover,.filter-btn.active{
-      border-color:var(--gold-dk);color:var(--gold);background:rgba(201,168,76,.05);
-    }
-    .price-section-block{padding:3rem 0;border-bottom:1px solid var(--border);}
-    .price-section-block:last-child{border-bottom:none;}
-    .psb-header{display:flex;align-items:center;gap:1rem;margin-bottom:2rem;}
-    .psb-icon{font-size:1.6rem;}
-    .psb-title{
-      font-family:var(--ff-display);font-size:1.2rem;font-weight:600;
-      letter-spacing:.08em;color:var(--white);
-    }
-    .psb-sub{font-size:.85rem;color:var(--muted);font-style:italic;margin-top:.15rem;}
-    .psb-link{
-      margin-left:auto;font-family:var(--ff-sans);
-      font-size:.52rem;letter-spacing:.16em;text-transform:uppercase;
-      color:var(--gold);border-bottom:1px solid var(--gold-dk);
-      padding-bottom:1px;white-space:nowrap;
-      transition:border-color .2s;
-    }
-    .psb-link:hover{border-color:var(--gold);}
-    .extra-services-grid{
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:1.5rem;margin-top:2rem;
-    }
-    .extra-card{
-      background:var(--card);padding:1.8rem;
-      border:1px solid var(--border);
-      transition:border-color .3s;
-    }
-    .extra-card:hover{border-color:var(--gold-dk);}
-    .extra-icon{font-size:1.5rem;margin-bottom:.8rem;}
-    .extra-title{
-      font-family:var(--ff-display);font-size:.9rem;font-weight:600;
-      letter-spacing:.1em;color:var(--white);margin-bottom:.5rem;
-    }
-    .extra-desc{font-size:.88rem;color:var(--muted);line-height:1.6;}
-    .extra-note{
-      font-family:var(--ff-sans);font-size:.55rem;
-      letter-spacing:.14em;text-transform:uppercase;
-      color:var(--gold);margin-top:.7rem;
-    }
-  </style>
-<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Cinzel:wght@400;600;700;900&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>All Services & Prices — De Royal Grillz Grabouw</title>
+<meta name="description" content="Full price list: silver grillz, gold grillz, false teeth, dentures, cash for gold. De Royal Grillz Grabouw."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@400;700;900&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet"/>
 <style>
-/* ══════════════════════════════════════════════════
-   ROYAL GRILLZ PTY LTD — Master Stylesheet
-   Theme: Dark luxury gold — minimal, refined, regal
-   ══════════════════════════════════════════════════ */
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#000;--dark:#080808;--card:#111;--card2:#161616;
+  --b1:#1c1c1c;--b2:#2a2a2a;
+  --gold:#C9A84C;--gold-lt:#E8C96D;--gold-dk:#8B6914;
+  --white:#fff;--cream:#EDE5D5;--muted:#777068;--muted2:#999080;
+  --fd:'Cinzel',serif;--fs:'Cormorant Garamond',serif;--fn:'Raleway',sans-serif;
+  --ease:cubic-bezier(.25,.46,.45,.94);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--black);color:var(--cream);font-family:var(--fs);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%}
+::selection{background:var(--gold-dk);color:var(--gold-lt)}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--gold-dk)}
+h1,h2,h3{font-family:var(--fd);font-weight:600;letter-spacing:.06em;line-height:1.15;color:var(--white)}
 
-:root {
-  --black:      #000000;
-  --dark:       #080808;
-  --surface:    #0d0d0d;
-  --card:       #111111;
-  --card-hover: #161616;
-  --border:     #1c1c1c;
-  --border-lt:  #282828;
-  --gold:       #C9A84C;
-  --gold-lt:    #E8C96D;
-  --gold-dk:    #8B6914;
-  --gold-pale:  rgba(201,168,76,.08);
-  --white:      #FFFFFF;
-  --off-wht:    #EDE5D5;
-  --muted:      #777068;
-  --muted-lt:   #999080;
-  --red:        #8B1A1A;
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;transition:background .35s,border-color .35s;border-bottom:1px solid transparent}
+#nav.scrolled{background:rgba(0,0,0,.96);border-bottom-color:var(--b1);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.logo{display:flex;align-items:center;gap:.5rem;font-family:var(--fd);font-size:.9rem;font-weight:700;letter-spacing:.1em;color:var(--gold);white-space:nowrap;line-height:1;flex-shrink:0}
+.logo-crown{font-size:1rem;line-height:1;display:inline-block}
+.logo-text{display:inline-block;line-height:1}
+.nav-links{display:flex;align-items:center;gap:1.8rem;list-style:none}
+.nav-links a{font-family:var(--fn);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);transition:color .2s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:var(--gold)}
+.nav-call{background:var(--gold)!important;color:var(--black)!important;padding:.45rem 1.1rem;font-weight:600}
+.nav-call:hover{background:var(--gold-lt)!important}
+.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;flex-shrink:0}
+.ham span{width:22px;height:1.5px;background:var(--gold);display:block;transition:all .28s}
+.ham.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.ham.open span:nth-child(2){opacity:0}
+.ham.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mob{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.98);flex-direction:column;align-items:center;justify-content:center;gap:1.8rem}
+.mob.open{display:flex}
+.mob a{font-family:var(--fd);font-size:1.3rem;letter-spacing:.08em;color:var(--cream);transition:color .2s}
+.mob a:hover{color:var(--gold)}
+.mob-call{margin-top:.5rem;font-family:var(--fn)!important;font-size:.65rem!important;letter-spacing:.2em!important;color:var(--gold)!important;border:1px solid var(--gold-dk);padding:.7rem 2rem}
 
-  --ff-display: 'Cinzel', serif;
-  --ff-serif:   'Cormorant Garamond', serif;
-  --ff-sans:    'Raleway', sans-serif;
+/* PAGE HEADER */
+.page-header{padding:8rem 1.5rem 3.5rem;text-align:center;position:relative;overflow:hidden;background:radial-gradient(ellipse 65% 55% at 50% 30%,rgba(201,168,76,.09) 0%,transparent 65%),var(--black)}
+.page-header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dk),transparent)}
+.page-header h1{font-size:clamp(1.8rem,5vw,3rem);margin-bottom:.4rem}
+.page-header p{color:var(--muted);font-style:italic}
 
-  --ease:       cubic-bezier(.25,.46,.45,.94);
-  --ease-spring: cubic-bezier(.34,1.56,.64,1);
-}
+/* BREADCRUMB */
+.bc{display:flex;align-items:center;gap:.5rem;font-family:var(--fn);font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);justify-content:center;margin-bottom:.8rem}
+.bc a{color:var(--gold)}
 
-html { scroll-behavior: smooth; font-size: 16px; }
+/* CONTAINER / SECTION */
+.sec{padding:5rem 1.5rem}.sec-dark{background:var(--dark)}
+.container{max-width:1120px;margin:0 auto}
+.sec-head{text-align:center;margin-bottom:3rem}
+.eyebrow{font-family:var(--fn);font-size:.52rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.5rem}
+.sec-title{font-family:var(--fd);font-size:clamp(1.5rem,4vw,2.2rem);font-weight:600;letter-spacing:.07em;color:var(--white)}
+.gold-line{width:50px;height:1px;margin:1.2rem auto;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.gold-line-l{width:50px;height:1px;margin:1.2rem 0;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.sec-desc{font-style:italic;color:var(--muted);font-size:.95rem}
+.tag-label{font-family:var(--fn);font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.4rem}
 
-body {
-  background: var(--black);
-  color: var(--off-wht);
-  font-family: var(--ff-serif);
-  font-size: 1.05rem;
-  line-height: 1.75;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
+/* BUTTONS */
+.btn-g{display:inline-block;font-family:var(--fn);font-size:.58rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;background:linear-gradient(135deg,var(--gold-dk),var(--gold),var(--gold-lt));color:var(--black);padding:.85rem 1.8rem;transition:opacity .2s,transform .2s}
+.btn-g:hover{opacity:.85;transform:translateY(-2px)}
+.btn-o{display:inline-block;font-family:var(--fn);font-size:.58rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;background:transparent;border:1px solid var(--gold-dk);color:var(--gold);padding:.85rem 1.8rem;transition:border-color .2s,color .2s,transform .2s}
+.btn-o:hover{border-color:var(--gold);color:var(--gold-lt);transform:translateY(-2px)}
+.badge{display:inline-block;font-family:var(--fn);font-size:.48rem;letter-spacing:.16em;text-transform:uppercase;padding:.25rem .7rem;border:1px solid var(--gold-dk);color:var(--gold)}
 
-::selection { background: var(--gold-dk); color: var(--gold-lt); }
+/* REVEAL */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.rv.on{opacity:1;transform:translateY(0)}
 
-::-webkit-scrollbar { width: 3px; }
-::-webkit-scrollbar-track { background: var(--black); }
-::-webkit-scrollbar-thumb { background: var(--gold-dk); }
+/* PRICE GRID */
+.price-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:1px}
+.pi{background:var(--card);padding:1.3rem 1.5rem;display:flex;flex-direction:column;gap:.25rem;transition:background .2s}
+.pi:hover{background:var(--card2)}
+.pi-cat{font-family:var(--fn);font-size:.46rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.pi-name{font-family:var(--fd);font-size:.72rem;font-weight:600;letter-spacing:.08em;color:var(--cream)}
+.pi-price{font-family:var(--fd);font-size:1.3rem;font-weight:700;color:var(--gold);line-height:1}
+.cat-block{margin-bottom:2rem}
+.cat-title-row{display:flex;align-items:center;gap:1rem;margin-bottom:1px;padding:.9rem 1.2rem;background:var(--card);border-left:3px solid var(--gold-dk)}
+.ct-icon{font-size:1.2rem}
+.ct-name{font-family:var(--fd);font-size:.85rem;font-weight:600;letter-spacing:.08em;color:var(--white)}
+.ct-sub{font-size:.8rem;color:var(--muted);font-style:italic;margin-top:.1rem}
+.ct-badge{margin-left:auto}
 
-/* ── TYPOGRAPHY ─────────────────────────────────── */
-h1,h2,h3,h4 {
-  font-family: var(--ff-display);
-  font-weight: 600;
-  letter-spacing: .06em;
-  line-height: 1.15;
-  color: var(--white);
-}
+/* PRICE TABLE */
+.ptable{width:100%;border-collapse:collapse;margin-top:1rem}
+.ptable th{font-family:var(--fn);font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);text-align:left;padding:.7rem 1rem;border-bottom:1px solid var(--b2);background:var(--dark)}
+.ptable td{padding:.85rem 1rem;font-family:var(--fs);font-size:.92rem;color:var(--cream);border-bottom:1px solid var(--b1);background:var(--card);transition:background .2s}
+.ptable tr:hover td{background:var(--card2)}
+.ptable td.amt{font-family:var(--fd);font-weight:700;color:var(--gold);font-size:1rem}
 
-a { color: inherit; text-decoration: none; }
-img { display: block; width: 100%; }
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:4rem;max-width:1120px;margin:0 auto}
+.c-icon-row{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.5rem}
+.c-icon{width:40px;height:40px;flex-shrink:0;border:1px solid var(--gold-dk);display:flex;align-items:center;justify-content:center;font-size:.95rem}
+.c-lbl{font-family:var(--fn);font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.2rem}
+.c-val{color:var(--cream);font-size:.95rem}
+.c-val a{color:var(--cream);transition:color .2s}.c-val a:hover{color:var(--gold)}
+.hours-card{background:var(--card);border:1px solid var(--b1);padding:1.4rem;margin-top:1.8rem}
+.hours-title{font-family:var(--fd);font-size:.7rem;letter-spacing:.12em;color:var(--gold);margin-bottom:.9rem}
+.h-row{display:flex;justify-content:space-between;font-size:.88rem;color:var(--muted);padding:.4rem 0;border-bottom:1px solid var(--b1)}
+.h-row:last-child{border:none}.h-row span:last-child{color:var(--cream)}
+.vm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:1.5rem}
+.vmc{background:var(--card);padding:1.3rem 1rem;text-align:center}
+.vmc-icon{font-size:1.6rem;margin-bottom:.5rem}
+.vmc-title{font-family:var(--fd);font-size:.7rem;letter-spacing:.1em;color:var(--white);margin-bottom:.25rem}
+.vmc-desc{font-size:.78rem;color:var(--muted)}
+.form-group{margin-bottom:1rem}
+.form-lbl{font-family:var(--fn);font-size:.48rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.4rem}
+.form-ctrl{width:100%;background:var(--card);border:1px solid var(--b1);color:var(--cream);padding:.8rem 1rem;font-family:var(--fs);font-size:1rem;outline:none;transition:border-color .25s;appearance:none}
+.form-ctrl::placeholder{color:#3a3830}.form-ctrl:focus{border-color:var(--gold-dk)}
+textarea.form-ctrl{resize:vertical;min-height:100px}
+select.form-ctrl{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23C9A84C' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem;cursor:pointer}
+select.form-ctrl option{background:var(--card)}
+.form-submit{width:100%;background:linear-gradient(135deg,var(--gold-dk),var(--gold),var(--gold-lt));color:var(--black);border:none;padding:.95rem;font-family:var(--fn);font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:opacity .2s,transform .2s;margin-top:.4rem}
+.form-submit:hover{opacity:.85;transform:translateY(-1px)}
+.form-success{display:none;text-align:center;padding:2rem;border:1px solid var(--gold-dk);color:var(--gold)}
 
-/* ── UTILITIES ──────────────────────────────────── */
-.container    { max-width: 1120px; margin: 0 auto; padding: 0 2rem; }
-.container-sm { max-width: 800px;  margin: 0 auto; padding: 0 2rem; }
-.section      { padding: 6rem 0; }
-.section-sm   { padding: 4rem 0; }
-.gold         { color: var(--gold); }
-.muted        { color: var(--muted); }
-.italic       { font-style: italic; }
-.center       { text-align: center; }
+/* CATION CARDS (contact) */
+.cac-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;margin-bottom:3rem}
+.cac{background:var(--card);padding:1.8rem 1.4rem;text-align:center;border-top:2px solid transparent;transition:border-color .3s,background .3s;display:block;color:inherit}
+.cac:hover{border-top-color:var(--gold);background:var(--card2)}
+.cac-icon{font-size:1.8rem;margin-bottom:.6rem}
+.cac-title{font-family:var(--fd);font-size:.8rem;font-weight:600;letter-spacing:.1em;color:var(--gold);margin-bottom:.3rem}
+.cac-val{font-size:.9rem;color:var(--cream)}.cac-sub{font-size:.75rem;color:var(--muted);margin-top:.15rem}
+.map-frame{width:100%;height:320px;border:1px solid var(--b1);filter:grayscale(1) contrast(1.1) brightness(.8);transition:filter .3s}
+.map-frame:hover{filter:grayscale(.3) brightness(1)}
 
-.divider {
-  width: 60px; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  margin: 1.5rem auto;
-}
-.divider-left { margin: 1.5rem 0; }
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--b1);padding:1rem 0}
+.faq-q{font-family:var(--fd);font-size:.88rem;font-weight:600;letter-spacing:.06em;color:var(--cream);cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.faq-q:hover{color:var(--gold)}
+.faq-a{font-size:.88rem;color:var(--muted);line-height:1.7;margin-top:.7rem;display:none}
+.faq-a.open{display:block}
+.faq-icon{font-size:.75rem;color:var(--gold-dk);transition:transform .25s;flex-shrink:0;margin-left:.5rem}
+.faq-icon.open{transform:rotate(45deg)}
 
-.tag {
-  font-family: var(--ff-sans);
-  font-size: .58rem;
-  letter-spacing: .28em;
-  text-transform: uppercase;
-  color: var(--gold);
-  display: block;
-  margin-bottom: .6rem;
-}
+/* GOLD PAGE */
+.promise-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;margin:2rem 0}
+.pg{background:var(--card);padding:1.8rem 1.4rem;text-align:center}
+.pg-icon{font-size:1.6rem;margin-bottom:.7rem}
+.pg-title{font-family:var(--fd);font-size:.78rem;font-weight:600;letter-spacing:.08em;color:var(--gold);margin-bottom:.35rem}
+.pg-desc{font-size:.82rem;color:var(--muted)}
+.buy-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5px;margin-top:1.5rem}
+.buy{background:var(--card);padding:1.8rem;border-top:2px solid transparent;transition:border-color .3s,background .3s}
+.buy:hover{border-top-color:var(--gold);background:var(--card2)}
+.buy-icon{font-size:1.6rem;margin-bottom:.8rem}
+.buy-name{font-family:var(--fd);font-size:.9rem;font-weight:600;letter-spacing:.08em;color:var(--white);margin-bottom:.4rem}
+.buy-desc{font-size:.88rem;color:var(--muted);line-height:1.6}
+.step-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1.5rem;margin-top:2.5rem}
+.step{text-align:center}
+.step-n{width:44px;height:44px;border:1px solid var(--gold-dk);display:flex;align-items:center;justify-content:center;margin:0 auto .8rem;font-family:var(--fd);font-size:1rem;font-weight:700;color:var(--gold)}
+.step-t{font-family:var(--fd);font-size:.8rem;font-weight:600;letter-spacing:.1em;color:var(--white);margin-bottom:.35rem}
+.step-d{font-size:.82rem;color:var(--muted)}
 
-.section-title {
-  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-  margin-bottom: .5rem;
-}
+/* FILTER BAR */
+.filter-bar{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin:2rem 0}
+.fb{font-family:var(--fn);font-size:.52rem;letter-spacing:.16em;text-transform:uppercase;padding:.45rem 1.1rem;border:1px solid var(--b1);background:transparent;color:var(--muted);cursor:pointer;transition:all .2s}
+.fb:hover,.fb.active{border-color:var(--gold-dk);color:var(--gold);background:rgba(201,168,76,.05)}
 
-/* ── BUTTONS ────────────────────────────────────── */
-.btn {
-  display: inline-block;
-  font-family: var(--ff-sans);
-  font-size: .6rem;
-  font-weight: 600;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  padding: .9rem 2rem;
-  cursor: pointer;
-  border: none;
-  transition: transform .25s var(--ease), opacity .25s;
-}
-.btn:hover { transform: translateY(-2px); opacity: .88; }
+/* FOOTER */
+footer{background:var(--dark);border-top:1px solid var(--b1);padding:3.5rem 1.5rem 1.5rem}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;max-width:1120px;margin:0 auto 2.5rem}
+.foot-brand{font-family:var(--fd);font-size:.9rem;font-weight:700;letter-spacing:.1em;color:var(--gold);margin-bottom:.5rem}
+.foot-desc{font-size:.82rem;color:var(--muted);line-height:1.7;max-width:220px}
+.foot-q{font-style:italic;font-size:.82rem;color:var(--gold-dk);margin-top:.7rem}
+.foot-h{font-family:var(--fn);font-size:.46rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem}
+.foot-ul{list-style:none}.foot-ul li{margin-bottom:.4rem}
+.foot-ul a{font-size:.82rem;color:var(--muted);transition:color .2s}.foot-ul a:hover{color:var(--cream)}
+.foot-bot{border-top:1px solid var(--b1);padding-top:1.4rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem;max-width:1120px;margin:0 auto}
+.foot-copy{font-family:var(--fn);font-size:.48rem;letter-spacing:.1em;color:var(--muted)}
 
-.btn-gold {
-  background: linear-gradient(135deg, var(--gold-dk), var(--gold), var(--gold-lt));
-  color: var(--black);
-}
-.btn-outline {
-  background: transparent;
-  border: 1px solid var(--gold-dk);
-  color: var(--gold);
-}
-.btn-outline:hover { border-color: var(--gold); color: var(--gold-lt); }
+/* WA */
+.wa{position:fixed;bottom:1.5rem;right:1.5rem;width:50px;height:50px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:800;box-shadow:0 4px 16px rgba(37,211,102,.4);transition:transform .25s}
+.wa:hover{transform:scale(1.1)}.wa svg{width:26px;height:26px;fill:#fff}
 
-/* ── BADGE / PILL ───────────────────────────────── */
-.badge {
-  display: inline-block;
-  font-family: var(--ff-sans);
-  font-size: .52rem;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  padding: .3rem .8rem;
-  border: 1px solid var(--gold-dk);
-  color: var(--gold);
-}
+/* RESPONSIVE */
+@media(max-width:900px){.nav-links{display:none}.ham{display:flex}.foot-grid{grid-template-columns:1fr 1fr}.contact-grid{grid-template-columns:1fr;gap:2.5rem}}
+@media(max-width:560px){.sec{padding:3.5rem 1.2rem}.foot-grid{grid-template-columns:1fr}.price-grid{grid-template-columns:1fr 1fr}.vm-grid{grid-template-columns:1fr}}
 
-/* ── REVEAL ANIMATION ───────────────────────────── */
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity .65s var(--ease), transform .65s var(--ease);
-}
-.reveal.visible { opacity: 1; transform: translateY(0); }
-
-/* ── NAV ────────────────────────────────────────── */
-#nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  padding: 1.5rem 2rem;
-  display: flex; align-items: center; justify-content: space-between;
-  transition: all .4s;
-}
-#nav.scrolled {
-  background: rgba(0,0,0,.94);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  padding: .85rem 2rem;
-  border-bottom: 1px solid var(--border);
-}
-.nav-logo {
-  display: flex; align-items: center; gap: .6rem;
-  font-family: var(--ff-display);
-  font-size: .95rem;
-  font-weight: 700;
-  letter-spacing: .12em;
-  color: var(--gold);
-}
-.nav-crown { font-size: 1.1rem; }
-.nav-links {
-  display: flex; align-items: center; gap: 2rem;
-  list-style: none;
-}
-.nav-links a {
-  font-family: var(--ff-sans);
-  font-size: .6rem;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--muted);
-  transition: color .2s;
-}
-.nav-links a:hover,
-.nav-links a.active { color: var(--gold); }
-.nav-cta {
-  background: var(--gold) !important;
-  color: var(--black) !important;
-  padding: .5rem 1.2rem !important;
-}
-.nav-cta:hover { background: var(--gold-lt) !important; }
-
-.hamburger {
-  display: none;
-  flex-direction: column; gap: 5px;
-  background: none; border: none; cursor: pointer; padding: 4px;
-}
-.hamburger span {
-  width: 22px; height: 1.5px;
-  background: var(--gold); display: block;
-  transition: all .28s;
-}
-.hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; }
-.hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-
-.mobile-menu {
-  display: none; position: fixed; inset: 0; z-index: 998;
-  background: rgba(0,0,0,.97);
-  flex-direction: column; align-items: center; justify-content: center;
-  gap: 2rem;
-}
-.mobile-menu.open { display: flex; }
-.mobile-menu a {
-  font-family: var(--ff-display);
-  font-size: 1.4rem;
-  letter-spacing: .08em;
-  color: var(--off-wht);
-  transition: color .2s;
-}
-.mobile-menu a:hover { color: var(--gold); }
-
-/* ── HERO ───────────────────────────────────────── */
-#hero {
-  min-height: 100vh;
-  display: flex; align-items: center; justify-content: center;
-  text-align: center;
-  position: relative; overflow: hidden;
-  padding: 8rem 2rem 5rem;
-}
-.hero-bg {
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 70% 55% at 50% 38%, rgba(201,168,76,.1) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 35% at 15% 85%, rgba(139,105,20,.06) 0%, transparent 55%),
-    var(--black);
-}
-.hero-grain {
-  position: absolute; inset: 0; pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
-}
-.hero-inner { position: relative; z-index: 1; max-width: 860px; }
-
-.hero-crown-svg {
-  width: 62px; height: 62px; margin: 0 auto 1.8rem;
-  animation: float 4.5s ease-in-out infinite;
-  filter: drop-shadow(0 0 20px rgba(201,168,76,.45));
-}
-@keyframes float {
-  0%,100% { transform: translateY(0) rotate(-1deg); }
-  50%      { transform: translateY(-10px) rotate(1deg); }
-}
-
-.hero-eyebrow {
-  font-family: var(--ff-sans);
-  font-size: .58rem; letter-spacing: .35em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 1.5rem;
-  animation: fadeUp .8s .15s both;
-}
-.hero-title {
-  font-family: var(--ff-display);
-  font-size: clamp(3rem, 8vw, 6rem);
-  font-weight: 900;
-  letter-spacing: .04em;
-  line-height: 1;
-  color: var(--white);
-  margin-bottom: .6rem;
-  animation: fadeUp .8s .3s both;
-}
-.hero-title .gold-grad {
-  background: linear-gradient(135deg, var(--gold-dk) 0%, var(--gold-lt) 50%, var(--gold) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.hero-subtitle {
-  font-family: var(--ff-serif);
-  font-style: italic;
-  font-size: clamp(1rem, 2vw, 1.3rem);
-  color: var(--muted-lt);
-  margin-bottom: .8rem;
-  animation: fadeUp .8s .45s both;
-}
-.hero-services-pill {
-  display: inline-flex; flex-wrap: wrap;
-  justify-content: center; gap: .5rem;
-  margin-bottom: 2.5rem;
-  animation: fadeUp .8s .55s both;
-}
-.hero-services-pill span {
-  font-family: var(--ff-sans);
-  font-size: .52rem; letter-spacing: .15em; text-transform: uppercase;
-  color: var(--muted); border: 1px solid var(--border);
-  padding: .3rem .8rem;
-}
-.hero-btns {
-  display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
-  animation: fadeUp .8s .65s both;
-  margin-bottom: 2.5rem;
-}
-.hero-visit-modes {
-  display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
-  animation: fadeUp .8s .75s both;
-}
-.visit-mode {
-  display: flex; flex-direction: column; align-items: center; gap: .3rem;
-}
-.visit-mode-icon { font-size: 1.5rem; }
-.visit-mode-label {
-  font-family: var(--ff-sans);
-  font-size: .52rem; letter-spacing: .18em; text-transform: uppercase;
-  color: var(--muted);
-}
-
-.hero-scroll {
-  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
-  display: flex; flex-direction: column; align-items: center; gap: .4rem;
-  animation: fadeIn 1s 1.4s both;
-}
-.hero-scroll-label {
-  font-family: var(--ff-sans);
-  font-size: .48rem; letter-spacing: .25em; text-transform: uppercase;
-  color: var(--muted);
-}
-.scroll-bar {
-  width: 1px; height: 42px;
-  background: linear-gradient(to bottom, var(--gold-dk), transparent);
-  animation: scrollAnim 2s ease-in-out infinite;
-}
-@keyframes scrollAnim {
-  0%,100% { opacity: 1; transform: scaleY(1); }
-  50%      { opacity: .35; transform: scaleY(.5); }
-}
-
-/* ── STATS STRIP ────────────────────────────────── */
-.stats-strip {
-  background: var(--dark);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 2rem 0;
-}
-.stats-row {
-  display: flex; align-items: center;
-  justify-content: space-around; flex-wrap: wrap; gap: 1.5rem;
-}
-.stat { text-align: center; }
-.stat-n {
-  font-family: var(--ff-display);
-  font-size: 1.6rem; font-weight: 700;
-  color: var(--gold); line-height: 1;
-}
-.stat-l {
-  font-family: var(--ff-sans);
-  font-size: .52rem; letter-spacing: .2em; text-transform: uppercase;
-  color: var(--muted); margin-top: .3rem;
-}
-.stat-sep { width: 1px; height: 36px; background: var(--border); }
-
-/* ── SERVICES OVERVIEW ──────────────────────────── */
-.services-overview-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5px;
-  margin-top: 3.5rem;
-}
-.svc-card {
-  background: var(--card);
-  padding: 2.2rem 1.8rem;
-  position: relative; overflow: hidden;
-  transition: background .3s;
-}
-.svc-card::after {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  transform: scaleX(0); transform-origin: center;
-  transition: transform .4s var(--ease);
-}
-.svc-card:hover::after { transform: scaleX(1); }
-.svc-card:hover { background: var(--card-hover); }
-.svc-card-icon {
-  font-size: 1.6rem; margin-bottom: 1rem;
-  filter: drop-shadow(0 0 8px rgba(201,168,76,.3));
-}
-.svc-card-name {
-  font-family: var(--ff-display);
-  font-size: .9rem; font-weight: 600;
-  letter-spacing: .1em; color: var(--white);
-  margin-bottom: .5rem;
-}
-.svc-card-desc {
-  font-size: .9rem; color: var(--muted); line-height: 1.6;
-}
-.svc-card-link {
-  display: inline-block; margin-top: 1rem;
-  font-family: var(--ff-sans);
-  font-size: .52rem; letter-spacing: .18em; text-transform: uppercase;
-  color: var(--gold);
-  border-bottom: 1px solid var(--gold-dk);
-  padding-bottom: 1px;
-  transition: border-color .2s;
-}
-.svc-card-link:hover { border-color: var(--gold); }
-
-/* ── PRICE TABLE STYLES ─────────────────────────── */
-.price-page-hero {
-  padding: 9rem 2rem 4rem;
-  text-align: center;
-  background:
-    radial-gradient(ellipse 60% 50% at 50% 30%, rgba(201,168,76,.09) 0%, transparent 65%),
-    var(--black);
-}
-.price-page-hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
-
-.price-section { padding: 4rem 0; }
-.price-section + .price-section { border-top: 1px solid var(--border); }
-
-.price-category-title {
-  font-family: var(--ff-display);
-  font-size: clamp(1.2rem, 3vw, 1.8rem);
-  font-weight: 600;
-  letter-spacing: .1em;
-  color: var(--white);
-  margin-bottom: .3rem;
-}
-.price-category-sub {
-  font-style: italic; color: var(--muted);
-  font-size: .95rem; margin-bottom: 2rem;
-}
-.price-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1px;
-}
-.price-item {
-  background: var(--card);
-  padding: 1.4rem 1.6rem;
-  display: flex; flex-direction: column; gap: .3rem;
-  position: relative; overflow: hidden;
-  transition: background .25s;
-}
-.price-item:hover { background: var(--card-hover); }
-.price-item::before {
-  content: '';
-  position: absolute; left: 0; top: 0; bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, transparent, var(--gold-dk), transparent);
-  opacity: 0;
-  transition: opacity .3s;
-}
-.price-item:hover::before { opacity: 1; }
-.price-item-name {
-  font-family: var(--ff-display);
-  font-size: .75rem; font-weight: 600;
-  letter-spacing: .1em; color: var(--off-wht);
-}
-.price-item-price {
-  font-family: var(--ff-display);
-  font-size: 1.4rem; font-weight: 700;
-  color: var(--gold); line-height: 1;
-}
-.price-item-price span {
-  font-size: .6rem; font-weight: 400;
-  letter-spacing: .12em; color: var(--muted); margin-left: .2rem;
-}
-.price-item-note {
-  font-size: .78rem; color: var(--muted); font-style: italic;
-}
-
-/* wide price table for full sets */
-.price-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1.5rem;
-}
-.price-table th {
-  font-family: var(--ff-sans);
-  font-size: .55rem; letter-spacing: .2em; text-transform: uppercase;
-  color: var(--gold); text-align: left;
-  padding: .8rem 1rem;
-  border-bottom: 1px solid var(--border-lt);
-  background: var(--dark);
-}
-.price-table td {
-  padding: .9rem 1rem;
-  font-family: var(--ff-serif);
-  font-size: .95rem; color: var(--off-wht);
-  border-bottom: 1px solid var(--border);
-  background: var(--card);
-  transition: background .2s;
-}
-.price-table tr:hover td { background: var(--card-hover); }
-.price-table td.amt {
-  font-family: var(--ff-display);
-  font-weight: 700; color: var(--gold); font-size: 1.05rem;
-}
-
-/* ── CONTACT PAGE ───────────────────────────────── */
-.contact-grid {
-  display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem;
-}
-.contact-block { margin-bottom: 2.2rem; }
-.contact-icon-row {
-  display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.8rem;
-}
-.c-icon {
-  width: 42px; height: 42px; flex-shrink: 0;
-  border: 1px solid var(--gold-dk);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1rem;
-}
-.c-label {
-  font-family: var(--ff-sans);
-  font-size: .52rem; letter-spacing: .2em; text-transform: uppercase;
-  color: var(--muted); display: block; margin-bottom: .25rem;
-}
-.c-value { color: var(--off-wht); font-size: 1rem; }
-.c-value a { color: var(--off-wht); transition: color .2s; }
-.c-value a:hover { color: var(--gold); }
-
-.visit-modes-grid {
-  display: grid; grid-template-columns: repeat(3,1fr); gap: 1px;
-  margin-top: 2rem;
-}
-.visit-mode-card {
-  background: var(--card);
-  padding: 1.5rem 1rem; text-align: center;
-}
-.vm-icon { font-size: 1.8rem; margin-bottom: .6rem; }
-.vm-title {
-  font-family: var(--ff-display);
-  font-size: .75rem; letter-spacing: .1em; color: var(--white);
-  margin-bottom: .3rem;
-}
-.vm-desc { font-size: .8rem; color: var(--muted); }
-
-/* form */
-.form-group { margin-bottom: 1.1rem; }
-.form-label {
-  font-family: var(--ff-sans);
-  font-size: .52rem; letter-spacing: .18em; text-transform: uppercase;
-  color: var(--muted); display: block; margin-bottom: .45rem;
-}
-.form-control {
-  width: 100%; background: var(--card);
-  border: 1px solid var(--border);
-  color: var(--off-wht);
-  padding: .85rem 1rem;
-  font-family: var(--ff-serif); font-size: 1rem;
-  outline: none; transition: border-color .25s;
-  appearance: none;
-}
-.form-control::placeholder { color: #3a3830; }
-.form-control:focus { border-color: var(--gold-dk); }
-textarea.form-control { resize: vertical; min-height: 110px; }
-select.form-control {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23C9A84C' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
-  background-repeat: no-repeat; background-position: right 1rem center;
-  padding-right: 2.5rem; cursor: pointer;
-}
-select.form-control option { background: var(--card); }
-.form-submit {
-  width: 100%;
-  background: linear-gradient(135deg, var(--gold-dk), var(--gold), var(--gold-lt));
-  color: var(--black); border: none;
-  padding: 1rem; margin-top: .4rem;
-  font-family: var(--ff-sans);
-  font-size: .6rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
-  cursor: pointer;
-  transition: opacity .25s, transform .2s;
-}
-.form-submit:hover { opacity: .85; transform: translateY(-1px); }
-
-.form-success {
-  display: none; text-align: center; padding: 2rem;
-  border: 1px solid var(--gold-dk); color: var(--gold);
-}
-
-/* ── HOURS TABLE ────────────────────────────────── */
-.hours-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  padding: 1.5rem;
-  margin-top: 2rem;
-}
-.hours-card-title {
-  font-family: var(--ff-display);
-  font-size: .75rem; letter-spacing: .14em;
-  color: var(--gold); margin-bottom: 1rem;
-}
-.hours-row {
-  display: flex; justify-content: space-between;
-  font-size: .9rem; color: var(--muted);
-  padding: .45rem 0;
-  border-bottom: 1px solid var(--border);
-}
-.hours-row:last-child { border: none; }
-.hours-row span:last-child { color: var(--off-wht); }
-
-/* ── FOOTER ─────────────────────────────────────── */
-footer {
-  background: var(--dark);
-  border-top: 1px solid var(--border);
-  padding: 4rem 0 2rem;
-}
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr 1fr;
-  gap: 2.5rem; margin-bottom: 3rem;
-}
-.footer-brand-name {
-  font-family: var(--ff-display);
-  font-size: 1rem; font-weight: 700;
-  letter-spacing: .12em; color: var(--gold);
-  margin-bottom: .6rem;
-}
-.footer-brand-desc {
-  font-size: .88rem; color: var(--muted);
-  line-height: 1.7; max-width: 240px;
-}
-.footer-tagline-q {
-  font-style: italic; font-size: .9rem;
-  color: var(--gold-dk); margin-top: 1rem;
-}
-.footer-col-title {
-  font-family: var(--ff-sans);
-  font-size: .52rem; letter-spacing: .24em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 1.1rem;
-}
-.footer-links { list-style: none; }
-.footer-links li { margin-bottom: .5rem; }
-.footer-links a {
-  font-size: .88rem; color: var(--muted);
-  transition: color .2s;
-}
-.footer-links a:hover { color: var(--off-wht); }
-.footer-bottom {
-  border-top: 1px solid var(--border);
-  padding-top: 1.8rem;
-  display: flex; justify-content: space-between; align-items: center;
-  flex-wrap: wrap; gap: 1rem;
-}
-.footer-copy {
-  font-family: var(--ff-sans);
-  font-size: .55rem; letter-spacing: .12em; color: var(--muted);
-}
-
-/* ── WA FLOAT ───────────────────────────────────── */
-.wa-float {
-  position: fixed; bottom: 1.8rem; right: 1.8rem;
-  width: 52px; height: 52px;
-  background: #25D366; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  z-index: 800;
-  box-shadow: 0 4px 18px rgba(37,211,102,.35);
-  transition: transform .25s var(--ease-spring), box-shadow .25s;
-}
-.wa-float:hover {
-  transform: scale(1.12);
-  box-shadow: 0 6px 26px rgba(37,211,102,.5);
-}
-.wa-float svg { width: 27px; height: 27px; fill: #fff; }
-
-/* ── CALL FLOAT ─────────────────────────────────── */
-.call-strip {
-  background: linear-gradient(135deg, #0a0800, #110e00);
-  border: 1px solid var(--gold-dk);
-  padding: 1.2rem 2rem;
-  display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 1rem;
-}
-.call-strip-text {
-  font-family: var(--ff-display);
-  font-size: .8rem; letter-spacing: .1em;
-  color: var(--off-wht);
-}
-.call-strip-num {
-  font-family: var(--ff-display);
-  font-size: 1.4rem; font-weight: 700;
-  color: var(--gold);
-  text-decoration: none;
-  transition: color .2s;
-}
-.call-strip-num:hover { color: var(--gold-lt); }
-
-/* ── PAGE HEADER (inner pages) ──────────────────── */
-.page-header {
-  padding: 9rem 2rem 4rem;
-  text-align: center;
-  position: relative; overflow: hidden;
-  background:
-    radial-gradient(ellipse 65% 55% at 50% 30%, var(--gold-pale) 0%, transparent 65%),
-    var(--black);
-}
-.page-header::after {
-  content: '';
-  position: absolute; bottom: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold-dk), transparent);
-}
-.page-header h1 { font-size: clamp(1.8rem, 4.5vw, 3.2rem); margin-bottom: .5rem; }
-.page-header p { color: var(--muted); font-style: italic; font-size: 1.1rem; }
-
-/* ── BREADCRUMB ─────────────────────────────────── */
-.breadcrumb {
-  display: flex; align-items: center; gap: .5rem;
-  font-family: var(--ff-sans);
-  font-size: .52rem; letter-spacing: .15em; text-transform: uppercase;
-  color: var(--muted); justify-content: center;
-  margin-bottom: 1rem;
-}
-.breadcrumb a { color: var(--gold); transition: color .2s; }
-.breadcrumb a:hover { color: var(--gold-lt); }
-.breadcrumb-sep { color: var(--border-lt); }
-
-/* ── KEYFRAMES ──────────────────────────────────── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(18px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-/* ── RESPONSIVE ─────────────────────────────────── */
-@media (max-width: 960px) {
-  .footer-grid { grid-template-columns: 1fr 1fr; }
-  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .nav-links { display: none; }
-  .hamburger { display: flex; }
-}
-@media (max-width: 600px) {
-  .footer-grid { grid-template-columns: 1fr; }
-  .stat-sep { display: none; }
-  .section { padding: 4rem 0; }
-  .price-grid { grid-template-columns: 1fr 1fr; }
-  .visit-modes-grid { grid-template-columns: 1fr; }
-}
-@media (max-width: 400px) {
-  .price-grid { grid-template-columns: 1fr; }
-}
 
 </style>
 </head>
 <body>
-
-<!-- NAV -->
 <nav id="nav">
-  <a href="index.html" class="nav-logo"><span class="nav-crown">♛</span> De Royal Grillz</a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="grillz.html">Grillz</a></li>
-    <li><a href="dentures.html">Dentures</a></li>
-    <li><a href="gold.html">Cash for Gold</a></li>
-    <li><a href="services.html" class="active">Services</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="tel:0628076534" class="btn btn-gold" style="padding:.5rem 1.2rem;">Call Now</a></li>
-  </ul>
-  <button class="hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+  <a href="index.html" class="logo"><span class="logo-crown">♛</span><span class="logo-text">De Royal Grillz</span></a>
+  <ul class="nav-links"><li><a href="index.html" >Home</a></li><li><a href="grillz.html" >Grillz</a></li><li><a href="dentures.html" >Dentures</a></li><li><a href="gold.html" >Cash for Gold</a></li><li><a href="services.html" class="active">Prices</a></li><li><a href="contact.html" >Contact</a></li><li><a href="tel:0628076534" class="nav-call">Call Now</a></li></ul>
+  <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="index.html"    onclick="closeMobile()">Home</a>
-  <a href="grillz.html"   onclick="closeMobile()">Grillz</a>
-  <a href="dentures.html" onclick="closeMobile()">Dentures</a>
-  <a href="gold.html"     onclick="closeMobile()">Cash for Gold</a>
-  <a href="services.html" onclick="closeMobile()">Services</a>
-  <a href="contact.html"  onclick="closeMobile()">Contact</a>
-  <a href="tel:0628076534" style="color:var(--gold)">062 807 6534</a>
+<div class="mob" id="mob">
+  <a href="index.html" onclick="cm()">Home</a><a href="grillz.html" onclick="cm()">Grillz</a><a href="dentures.html" onclick="cm()">Dentures</a><a href="gold.html" onclick="cm()">Cash for Gold</a><a href="services.html" onclick="cm()">Prices</a><a href="contact.html" onclick="cm()">Contact</a>
+  <a href="tel:0628076534" class="mob-call" onclick="cm()">062 807 6534</a>
 </div>
 
 <div class="page-header">
-  <div class="breadcrumb">
-    <a href="index.html">Home</a>
-    <span class="breadcrumb-sep">›</span>
-    <span>All Services &amp; Prices</span>
-  </div>
-  <h1>All Services &amp; <span class="gold">Prices</span></h1>
-  <p>Complete price list — every service, every category</p>
+  <div class="bc"><a href="index.html">Home</a><span>›</span><span>All Prices</span></div>
+  <h1>All Services &amp; <span style="color:var(--gold)">Prices</span></h1>
+  <p>Every category — clear, organised, complete</p>
 </div>
+<section class="sec">
+<div class="container">
 
-<main>
-  <div class="container" style="padding-top:1rem;padding-bottom:5rem;">
-
-    <div class="filter-bar reveal">
-      <button class="filter-btn active" onclick="filterAll(this)">All</button>
-      <button class="filter-btn" onclick="filterSection(this,'silver')">Silver Grillz</button>
-      <button class="filter-btn" onclick="filterSection(this,'gold-lb')">Gold Low Budget</button>
-      <button class="filter-btn" onclick="filterSection(this,'gold-9')">9ct Gold</button>
-      <button class="filter-btn" onclick="filterSection(this,'gold-18')">18ct Gold</button>
-      <button class="filter-btn" onclick="filterSection(this,'dentures')">Dentures</button>
-      <button class="filter-btn" onclick="filterSection(this,'cashgold')">Cash for Gold</button>
-      <button class="filter-btn" onclick="filterSection(this,'extra')">Other Services</button>
-    </div>
-
-    <!-- SILVER GRILLZ -->
-    <div class="price-section-block reveal" data-cat="silver">
-      <div class="psb-header">
-        <div class="psb-icon">◇</div>
-        <div><div class="psb-title">Silver Grillz</div><div class="psb-sub">Custom silver — all styles</div></div>
-        <a href="grillz.html" class="psb-link">Full page →</a>
-      </div>
-      <div class="price-grid">
-        <div class="price-item"><div class="price-item-name">1 Silver</div><div class="price-item-price">R 300</div></div>
-        <div class="price-item"><div class="price-item-name">2 Silver</div><div class="price-item-price">R 600</div></div>
-        <div class="price-item"><div class="price-item-name">3 Silver</div><div class="price-item-price">R 900</div></div>
-        <div class="price-item"><div class="price-item-name">4 Silver</div><div class="price-item-price">R 1,200</div></div>
-        <div class="price-item"><div class="price-item-name">6 Silver</div><div class="price-item-price">R 1,500</div></div>
-        <div class="price-item"><div class="price-item-name">1 Silver L</div><div class="price-item-price">R 200</div></div>
-        <div class="price-item"><div class="price-item-name">Double-L Silver</div><div class="price-item-price">R 350</div></div>
-        <div class="price-item"><div class="price-item-name">Silver Tips / Slit</div><div class="price-item-price">R 200</div></div>
-        <div class="price-item"><div class="price-item-name">2 Silver Tips / Slit</div><div class="price-item-price">R 350</div></div>
-      </div>
-    </div>
-
-    <!-- GOLD LOW BUDGET -->
-    <div class="price-section-block reveal" data-cat="gold-lb">
-      <div class="psb-header">
-        <div class="psb-icon">♛</div>
-        <div><div class="psb-title">Gold Grillz — Low Budget</div><div class="psb-sub">Affordable gold, premium shine</div></div>
-        <a href="grillz.html" class="psb-link">Full page →</a>
-      </div>
-      <div class="price-grid">
-        <div class="price-item"><div class="price-item-name">1 Gold</div><div class="price-item-price">R 450</div></div>
-        <div class="price-item"><div class="price-item-name">2 Gold</div><div class="price-item-price">R 900</div></div>
-        <div class="price-item"><div class="price-item-name">4 Gold</div><div class="price-item-price">R 1,600</div></div>
-        <div class="price-item"><div class="price-item-name">6 Gold</div><div class="price-item-price">R 2,200</div></div>
-        <div class="price-item"><div class="price-item-name">1 Gold L</div><div class="price-item-price">R 350</div></div>
-        <div class="price-item"><div class="price-item-name">Double-L Gold</div><div class="price-item-price">R 650</div></div>
-        <div class="price-item"><div class="price-item-name">Gold Tip / Slit</div><div class="price-item-price">R 300</div></div>
-      </div>
-    </div>
-
-    <!-- 9CT GOLD -->
-    <div class="price-section-block reveal" data-cat="gold-9">
-      <div class="psb-header">
-        <div class="psb-icon">♛</div>
-        <div><div class="psb-title">9ct Gold Grillz</div><div class="psb-sub">Solid 9 carat gold</div></div>
-        <a href="grillz.html" class="psb-link">Full page →</a>
-      </div>
-      <div class="price-grid">
-        <div class="price-item"><div class="price-item-name">1 Gold</div><div class="price-item-price">R 800</div></div>
-        <div class="price-item"><div class="price-item-name">2 Gold</div><div class="price-item-price">R 1,600</div></div>
-        <div class="price-item"><div class="price-item-name">4 Gold</div><div class="price-item-price">R 3,200</div></div>
-        <div class="price-item"><div class="price-item-name">6 Gold</div><div class="price-item-price">R 4,500</div></div>
-      </div>
-    </div>
-
-    <!-- 18CT GOLD -->
-    <div class="price-section-block reveal" data-cat="gold-18">
-      <div class="psb-header">
-        <div class="psb-icon">♛</div>
-        <div><div class="psb-title">18ct Gold Grillz</div><div class="psb-sub">Premium 18 carat gold — top tier</div></div>
-        <a href="grillz.html" class="psb-link">Full page →</a>
-      </div>
-      <div class="price-grid">
-        <div class="price-item"><div class="price-item-name">1 Gold Tooth</div><div class="price-item-price">R 1,500</div></div>
-        <div class="price-item"><div class="price-item-name">2 Gold</div><div class="price-item-price">R 2,900</div></div>
-        <div class="price-item"><div class="price-item-name">4 Gold</div><div class="price-item-price">R 5,800</div></div>
-        <div class="price-item"><div class="price-item-name">6 Gold</div><div class="price-item-price">R 7,500</div></div>
-      </div>
-    </div>
-
-    <!-- DENTURES / FALSE TEETH -->
-    <div class="price-section-block reveal" data-cat="dentures">
-      <div class="psb-header">
-        <div class="psb-icon">🦷</div>
-        <div><div class="psb-title">False Teeth &amp; Dentures</div><div class="psb-sub">Partial &amp; full sets — same day</div></div>
-        <a href="dentures.html" class="psb-link">Full page →</a>
-      </div>
-      <div class="price-grid">
-        <div class="price-item"><div class="price-item-name">1 False Tooth</div><div class="price-item-price">R 200</div></div>
-        <div class="price-item"><div class="price-item-name">2 False Teeth</div><div class="price-item-price">R 350</div></div>
-        <div class="price-item"><div class="price-item-name">4 False Teeth</div><div class="price-item-price">R 600</div></div>
-        <div class="price-item"><div class="price-item-name">5 / 6 False Teeth</div><div class="price-item-price">R 700</div></div>
-        <div class="price-item"><div class="price-item-name">Top Set</div><div class="price-item-price">R 800</div></div>
-        <div class="price-item"><div class="price-item-name">Bottom Set</div><div class="price-item-price">R 800</div></div>
-        <div class="price-item"><div class="price-item-name">Full Set</div><div class="price-item-price">R 1,700</div></div>
-        <div class="price-item"><div class="price-item-name">Full Set + 1 Silver</div><div class="price-item-price">R 1,950</div></div>
-        <div class="price-item"><div class="price-item-name">Full Set + 1 Gold</div><div class="price-item-price">R 2,200</div></div>
-        <div class="price-item"><div class="price-item-name">Top Set + 1 Silver</div><div class="price-item-price">R 1,000</div></div>
-        <div class="price-item"><div class="price-item-name">Top Set + 1 Gold</div><div class="price-item-price">R 1,200</div></div>
-      </div>
-    </div>
-
-    <!-- CASH FOR GOLD -->
-    <div class="price-section-block reveal" data-cat="cashgold">
-      <div class="psb-header">
-        <div class="psb-icon">💰</div>
-        <div><div class="psb-title">Cash for Gold</div><div class="psb-sub">We buy — tested &amp; instant payment</div></div>
-        <a href="gold.html" class="psb-link">Full page →</a>
-      </div>
-      <div class="extra-services-grid" style="margin-top:1rem;">
-        <div class="extra-card">
-          <div class="extra-icon">🥇</div>
-          <div class="extra-title">Gold (All Karats)</div>
-          <div class="extra-desc">9ct, 14ct, 18ct, 22ct, 24ct gold — jewellery, bars, coins &amp; scrap. Tested in front of you, instant cash.</div>
-          <div class="extra-note">Instant Payment</div>
-        </div>
-        <div class="extra-card">
-          <div class="extra-icon">🪙</div>
-          <div class="extra-title">Krugerrands &amp; Coins</div>
-          <div class="extra-desc">South African Krugerrands (gold &amp; silver), silver coins, collector coins. Fair spot-rate pricing.</div>
-          <div class="extra-note">Instant Payment</div>
-        </div>
-        <div class="extra-card">
-          <div class="extra-icon">💎</div>
-          <div class="extra-title">Diamonds &amp; Watches</div>
-          <div class="extra-desc">Loose diamonds, diamond jewellery, luxury &amp; gold watches. All assessed on the spot.</div>
-          <div class="extra-note">Instant Payment</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- EXTRA SERVICES -->
-    <div class="price-section-block reveal" data-cat="extra">
-      <div class="psb-header">
-        <div class="psb-icon">✦</div>
-        <div><div class="psb-title">Additional Services</div><div class="psb-sub">Piercings, repairs &amp; more</div></div>
-      </div>
-      <div class="extra-services-grid">
-        <div class="extra-card">
-          <div class="extra-icon">👂</div>
-          <div class="extra-title">Ear Piercings</div>
-          <div class="extra-desc">Professional ear piercings in a clean, safe environment. Call for current pricing.</div>
-          <div class="extra-note">Call for Price</div>
-        </div>
-        <div class="extra-card">
-          <div class="extra-icon">👃</div>
-          <div class="extra-title">Nose Piercings</div>
-          <div class="extra-desc">Professional nose piercings. Hygienic and done by experienced hands.</div>
-          <div class="extra-note">Call for Price</div>
-        </div>
-        <div class="extra-card">
-          <div class="extra-icon">🔧</div>
-          <div class="extra-title">Jewellery Repair</div>
-          <div class="extra-desc">Fixing broken silver and gold jewelleries — rings, chains, necklaces, bracelets.</div>
-          <div class="extra-note">Call for Quote</div>
-        </div>
-        <div class="extra-card">
-          <div class="extra-icon">💱</div>
-          <div class="extra-title">Foreign Exchange</div>
-          <div class="extra-desc">Currency exchange — bring your foreign notes for competitive ZAR rates.</div>
-          <div class="extra-note">Current Rates on Request</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- VISIT MODES -->
-    <div style="margin-top:4rem;text-align:center;" class="reveal">
-      <span class="tag">How to Book</span>
-      <h2 class="section-title">We Come to You</h2>
-      <div class="divider"></div>
-      <div class="visit-modes-grid" style="max-width:600px;margin:2rem auto 0;">
-        <div class="visit-mode-card">
-          <div class="vm-icon">🏠</div>
-          <div class="vm-title">Home Visit</div>
-          <div class="vm-desc">We come to your home — call to arrange</div>
-        </div>
-        <div class="visit-mode-card">
-          <div class="vm-icon">🤝</div>
-          <div class="vm-title">Outdoor Meet-Up</div>
-          <div class="vm-desc">Meet us at a convenient location</div>
-        </div>
-        <div class="visit-mode-card">
-          <div class="vm-icon">🏪</div>
-          <div class="vm-title">Walk-In Store</div>
-          <div class="vm-desc">Strt 3 Voortrekker, Grabouw</div>
-        </div>
-      </div>
-      <div style="margin-top:2.5rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-        <a href="tel:0628076534" class="btn btn-gold">Call 062 807 6534</a>
-        <a href="https://wa.me/27628076534" class="btn btn-outline" target="_blank">WhatsApp Us</a>
-        <a href="contact.html" class="btn btn-outline">Book Appointment</a>
-      </div>
-    </div>
-
+  <div class="filter-bar rv">
+    <button class="fb active" onclick="fa(this)">All</button>
+    <button class="fb" onclick="fs(this,'silver')">Silver Grillz</button>
+    <button class="fb" onclick="fs(this,'goldlb')">Gold Low Budget</button>
+    <button class="fb" onclick="fs(this,'gold9')">9ct Gold</button>
+    <button class="fb" onclick="fs(this,'gold18')">18ct Gold</button>
+    <button class="fb" onclick="fs(this,'dentures')">Dentures</button>
+    <button class="fb" onclick="fs(this,'cashgold')">Cash for Gold</button>
+    <button class="fb" onclick="fs(this,'extra')">Other</button>
   </div>
-</main>
 
-<!-- FOOTER -->
+  <!-- SILVER -->
+  <div class="cat-block rv" data-cat="silver" style="margin-bottom:2rem;">
+    <div class="cat-title-row"><span class="ct-icon">◇</span><div><div class="ct-name">Silver Grillz</div></div><a href="grillz.html" style="margin-left:auto;font-family:var(--fn);font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);">Details →</a></div>
+    <div class="price-grid">
+      <div class="pi"><span class="pi-cat">Silver</span><span class="pi-name">1 Silver</span><span class="pi-price">R 300</span></div>
+      <div class="pi"><span class="pi-cat">Silver</span><span class="pi-name">2 Silver</span><span class="pi-price">R 600</span></div>
+      <div class="pi"><span class="pi-cat">Silver</span><span class="pi-name">3 Silver</span><span class="pi-price">R 900</span></div>
+      <div class="pi"><span class="pi-cat">Silver</span><span class="pi-name">4 Silver</span><span class="pi-price">R 1,200</span></div>
+      <div class="pi"><span class="pi-cat">Silver</span><span class="pi-name">6 Silver</span><span class="pi-price">R 1,500</span></div>
+      <div class="pi"><span class="pi-cat">Silver L</span><span class="pi-name">1 Silver L</span><span class="pi-price">R 200</span></div>
+      <div class="pi"><span class="pi-cat">Silver L</span><span class="pi-name">Double-L Silver</span><span class="pi-price">R 350</span></div>
+      <div class="pi"><span class="pi-cat">Silver Slit</span><span class="pi-name">Tips / Slit</span><span class="pi-price">R 200</span></div>
+      <div class="pi"><span class="pi-cat">Silver Slit</span><span class="pi-name">2 Tips / Slit</span><span class="pi-price">R 350</span></div>
+    </div>
+  </div>
+
+  <!-- GOLD LB -->
+  <div class="cat-block rv" data-cat="goldlb" style="margin-bottom:2rem;">
+    <div class="cat-title-row"><span class="ct-icon">♛</span><div><div class="ct-name">Gold Grillz — Low Budget</div></div><a href="grillz.html" style="margin-left:auto;font-family:var(--fn);font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);">Details →</a></div>
+    <div class="price-grid">
+      <div class="pi"><span class="pi-cat">Gold LB</span><span class="pi-name">1 Gold</span><span class="pi-price">R 450</span></div>
+      <div class="pi"><span class="pi-cat">Gold LB</span><span class="pi-name">2 Gold</span><span class="pi-price">R 900</span></div>
+      <div class="pi"><span class="pi-cat">Gold LB</span><span class="pi-name">4 Gold</span><span class="pi-price">R 1,600</span></div>
+      <div class="pi"><span class="pi-cat">Gold LB</span><span class="pi-name">6 Gold</span><span class="pi-price">R 2,200</span></div>
+      <div class="pi"><span class="pi-cat">Gold LB</span><span class="pi-name">1 Gold L</span><span class="pi-price">R 350</span></div>
+      <div class="pi"><span class="pi-cat">Gold LB</span><span class="pi-name">Double-L Gold</span><span class="pi-price">R 650</span></div>
+      <div class="pi"><span class="pi-cat">Gold LB</span><span class="pi-name">Tip / Slit</span><span class="pi-price">R 300</span></div>
+    </div>
+  </div>
+
+  <!-- 9CT -->
+  <div class="cat-block rv" data-cat="gold9" style="margin-bottom:2rem;">
+    <div class="cat-title-row"><span class="ct-icon">♛</span><div><div class="ct-name">9ct Gold Grillz</div></div><a href="grillz.html" style="margin-left:auto;font-family:var(--fn);font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);">Details →</a></div>
+    <div class="price-grid">
+      <div class="pi"><span class="pi-cat">9ct</span><span class="pi-name">1 Gold</span><span class="pi-price">R 800</span></div>
+      <div class="pi"><span class="pi-cat">9ct</span><span class="pi-name">2 Gold</span><span class="pi-price">R 1,600</span></div>
+      <div class="pi"><span class="pi-cat">9ct</span><span class="pi-name">4 Gold</span><span class="pi-price">R 3,200</span></div>
+      <div class="pi"><span class="pi-cat">9ct</span><span class="pi-name">6 Gold</span><span class="pi-price">R 4,500</span></div>
+    </div>
+  </div>
+
+  <!-- 18CT -->
+  <div class="cat-block rv" data-cat="gold18" style="margin-bottom:2rem;">
+    <div class="cat-title-row"><span class="ct-icon">♛</span><div><div class="ct-name">18ct Gold Grillz</div></div><a href="grillz.html" style="margin-left:auto;font-family:var(--fn);font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);">Details →</a></div>
+    <div class="price-grid">
+      <div class="pi"><span class="pi-cat">18ct</span><span class="pi-name">1 Gold</span><span class="pi-price">R 1,500</span></div>
+      <div class="pi"><span class="pi-cat">18ct</span><span class="pi-name">2 Gold</span><span class="pi-price">R 2,900</span></div>
+      <div class="pi"><span class="pi-cat">18ct</span><span class="pi-name">4 Gold</span><span class="pi-price">R 5,800</span></div>
+      <div class="pi"><span class="pi-cat">18ct</span><span class="pi-name">6 Gold</span><span class="pi-price">R 7,500</span></div>
+    </div>
+  </div>
+
+  <!-- DENTURES -->
+  <div class="cat-block rv" data-cat="dentures" style="margin-bottom:2rem;">
+    <div class="cat-title-row"><span class="ct-icon">🦷</span><div><div class="ct-name">False Teeth &amp; Dentures</div></div><a href="dentures.html" style="margin-left:auto;font-family:var(--fn);font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);">Details →</a></div>
+    <div class="price-grid">
+      <div class="pi"><span class="pi-cat">Partial</span><span class="pi-name">1 False Tooth</span><span class="pi-price">R 200</span></div>
+      <div class="pi"><span class="pi-cat">Partial</span><span class="pi-name">2 False Teeth</span><span class="pi-price">R 350</span></div>
+      <div class="pi"><span class="pi-cat">Partial</span><span class="pi-name">4 False Teeth</span><span class="pi-price">R 600</span></div>
+      <div class="pi"><span class="pi-cat">Partial</span><span class="pi-name">5/6 False Teeth</span><span class="pi-price">R 700</span></div>
+      <div class="pi"><span class="pi-cat">Full Set</span><span class="pi-name">Top Set</span><span class="pi-price">R 800</span></div>
+      <div class="pi"><span class="pi-cat">Full Set</span><span class="pi-name">Bottom Set</span><span class="pi-price">R 800</span></div>
+      <div class="pi"><span class="pi-cat">Full Set</span><span class="pi-name">Top + Bottom</span><span class="pi-price">R 1,700</span></div>
+      <div class="pi"><span class="pi-cat">Silver Insert</span><span class="pi-name">Full + 1 Silver</span><span class="pi-price">R 1,950</span></div>
+      <div class="pi"><span class="pi-cat">Silver Insert</span><span class="pi-name">Top + 1 Silver</span><span class="pi-price">R 1,000</span></div>
+      <div class="pi"><span class="pi-cat">Gold Insert</span><span class="pi-name">Full + 1 Gold</span><span class="pi-price">R 2,200</span></div>
+      <div class="pi"><span class="pi-cat">Gold Insert</span><span class="pi-name">Top + 1 Gold</span><span class="pi-price">R 1,200</span></div>
+    </div>
+  </div>
+
+  <!-- CASH FOR GOLD -->
+  <div class="cat-block rv" data-cat="cashgold" style="margin-bottom:2rem;">
+    <div class="cat-title-row"><span class="ct-icon">💰</span><div><div class="ct-name">Cash for Gold</div><div class="ct-sub">Tested &amp; instant payment</div></div><a href="gold.html" style="margin-left:auto;font-family:var(--fn);font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);">Details →</a></div>
+    <div class="price-grid">
+      <div class="pi"><span class="pi-cat">Buy</span><span class="pi-name">Gold — All Karats</span><span class="pi-price" style="font-size:1rem;">Spot Rate</span></div>
+      <div class="pi"><span class="pi-cat">Buy</span><span class="pi-name">Silver</span><span class="pi-price" style="font-size:1rem;">Spot Rate</span></div>
+      <div class="pi"><span class="pi-cat">Buy</span><span class="pi-name">Krugerrands</span><span class="pi-price" style="font-size:1rem;">Spot Rate</span></div>
+      <div class="pi"><span class="pi-cat">Buy</span><span class="pi-name">Diamonds</span><span class="pi-price" style="font-size:1rem;">On Assessment</span></div>
+      <div class="pi"><span class="pi-cat">Buy</span><span class="pi-name">Watches</span><span class="pi-price" style="font-size:1rem;">On Assessment</span></div>
+    </div>
+  </div>
+
+  <!-- EXTRA SERVICES -->
+  <div class="cat-block rv" data-cat="extra" style="margin-bottom:2rem;">
+    <div class="cat-title-row"><span class="ct-icon">✦</span><div><div class="ct-name">Additional Services</div></div></div>
+    <div class="price-grid">
+      <div class="pi"><span class="pi-cat">Piercing</span><span class="pi-name">Ear Piercing</span><span class="pi-price" style="font-size:1rem;">Call for Price</span></div>
+      <div class="pi"><span class="pi-cat">Piercing</span><span class="pi-name">Nose Piercing</span><span class="pi-price" style="font-size:1rem;">Call for Price</span></div>
+      <div class="pi"><span class="pi-cat">Repair</span><span class="pi-name">Jewellery Repair</span><span class="pi-price" style="font-size:1rem;">Call for Quote</span></div>
+      <div class="pi"><span class="pi-cat">Exchange</span><span class="pi-name">Foreign Exchange</span><span class="pi-price" style="font-size:1rem;">On Request</span></div>
+    </div>
+  </div>
+
+  <div class="rv" style="text-align:center;padding:2rem 0 0;">
+    <a href="tel:0628076534" class="btn-g">Call 062 807 6534</a>
+    &nbsp;&nbsp;
+    <a href="contact.html" class="btn-o">Book Appointment</a>
+  </div>
+</div>
+</section>
+<script>
+function fa(btn){document.querySelectorAll('.fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('[data-cat]').forEach(s=>s.style.display='')}
+function fs(btn,cat){document.querySelectorAll('.fb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('[data-cat]').forEach(s=>{s.style.display=s.dataset.cat===cat?'':'none'})}
+</script>
+
 <footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand-name">♛ De Royal Grillz PTY LTD</div>
-        <p class="footer-brand-desc">Luxury Smiles. Premium Craftsmanship. Same-Day Results. Grabouw, South Africa.</p>
-        <p class="footer-tagline-q">"Put Your Money Where Your Mouth Is."</p>
-      </div>
-      <div>
-        <div class="footer-col-title">Services</div>
-        <ul class="footer-links">
-          <li><a href="grillz.html">Silver Grillz</a></li>
-          <li><a href="grillz.html">Gold Grillz</a></li>
-          <li><a href="dentures.html">False Teeth</a></li>
-          <li><a href="gold.html">Cash for Gold</a></li>
-          <li><a href="services.html">All Services</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Navigate</div>
-        <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="contact.html">Contact &amp; Location</a></li>
-          <li><a href="contact.html">Book Appointment</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Contact</div>
-        <ul class="footer-links">
-          <li><a href="tel:0628076534">062 807 6534</a></li>
-          <li><a href="https://wa.me/27628076534" target="_blank">WhatsApp</a></li>
-          <li><a href="https://maps.google.com/?q=Voortrekker+St+3+Grabouw" target="_blank">Strt 3 Voortrekker, Grabouw</a></li>
-        </ul>
-      </div>
+  <div class="foot-grid">
+    <div>
+      <div class="foot-brand">♛ De Royal Grillz PTY LTD</div>
+      <p class="foot-desc">Luxury Smiles. Premium Craftsmanship. Same-Day Results. Grabouw, South Africa.</p>
+      <p class="foot-q">"Put Your Money Where Your Mouth Is."</p>
     </div>
-    <div class="footer-bottom">
-      <p class="footer-copy">© 2025 De Royal Grillz PTY LTD · All Rights Reserved</p>
+    <div>
+      <div class="foot-h">Services</div>
+      <ul class="foot-ul">
+        <li><a href="grillz.html">Gold Grillz</a></li>
+        <li><a href="grillz.html">Silver Grillz</a></li>
+        <li><a href="dentures.html">False Teeth</a></li>
+        <li><a href="dentures.html">Full Dentures</a></li>
+        <li><a href="gold.html">Cash for Gold</a></li>
+        <li><a href="services.html">All Prices</a></li>
+      </ul>
     </div>
+    <div>
+      <div class="foot-h">Navigate</div>
+      <ul class="foot-ul">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Full Price List</a></li>
+        <li><a href="contact.html">Contact &amp; Location</a></li>
+        <li><a href="contact.html">Book Appointment</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="foot-h">Contact</div>
+      <ul class="foot-ul">
+        <li><a href="tel:0628076534">062 807 6534</a></li>
+        <li><a href="https://wa.me/27628076534" target="_blank">WhatsApp</a></li>
+        <li><a href="https://maps.google.com/?q=Voortrekker+St+3+Grabouw" target="_blank">Strt 3 Voortrekker, Grabouw</a></li>
+        <li style="color:var(--muted);font-size:.82rem;">Next to African Bank</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <p class="foot-copy">© 2025 De Royal Grillz PTY LTD · All Rights Reserved · Grabouw SA</p>
+    <p class="foot-copy">062 807 6534</p>
   </div>
 </footer>
-<a href="https://wa.me/27628076534" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <svg viewBox="0 0 24 24"><path fill="#fff" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+<a href="https://wa.me/27628076534" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
-
 <script>
-  function filterAll(btn) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.price-section-block').forEach(s => s.style.display = '');
-  }
-  function filterSection(btn, cat) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.price-section-block').forEach(s => {
-      s.style.display = s.dataset.cat === cat ? '' : 'none';
-    });
-  }
-</script>
-<script>
-/* ══════════════════════════════════════════════════
-   ROYAL GRILLZ — main.js
-   ══════════════════════════════════════════════════ */
-
-document.addEventListener('DOMContentLoaded', () => {
-
-  /* ── Nav scroll ── */
-  const nav = document.getElementById('nav');
-  if (nav) {
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 50);
-    });
-  }
-
-  /* ── Hamburger ── */
-  const ham  = document.getElementById('ham');
-  const mob  = document.getElementById('mobileMenu');
-  if (ham && mob) {
-    ham.addEventListener('click', () => {
-      ham.classList.toggle('open');
-      mob.classList.toggle('open');
-      document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
-    });
-  }
-  window.closeMobile = () => {
-    if (ham) ham.classList.remove('open');
-    if (mob) mob.classList.remove('open');
-    document.body.style.overflow = '';
-  };
-
-  /* ── Reveal on scroll ── */
-  const reveals = document.querySelectorAll('.reveal');
-  if (reveals.length) {
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add('visible'), i * 75);
-          obs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    reveals.forEach(r => obs.observe(r));
-  }
-
-  /* ── Active nav link ── */
-  const path = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    const href = a.getAttribute('href');
-    if (href === path || (path === '' && href === 'index.html')) {
-      a.classList.add('active');
-    }
-  });
-
-  /* ── Contact form ── */
-  window.submitForm = () => {
-    const name    = document.getElementById('fname')?.value.trim();
-    const phone   = document.getElementById('fphone')?.value.trim();
-    const service = document.getElementById('fservice')?.value;
-    if (!name || !phone || !service) {
-      alert('Please fill in your name, phone number, and select a service.');
-      return;
-    }
-    const form    = document.getElementById('contactForm');
-    const success = document.getElementById('formSuccess');
-    if (form && success) {
-      form.style.display = 'none';
-      success.style.display = 'block';
-    }
-  };
-
-  /* ── Testimonials ── */
-  const testimonials = [
-    { text: '"Got my grillz done same day — quality is unreal. Everyone asks me where I got them."', author: '— Sipho M., Cape Town' },
-    { text: '"Same-day dentures literally changed my life. Walked out with a smile I\'m proud of. 10/10."', author: '— Nomsa T., Grabouw' },
-    { text: '"Sold my old gold and got cash on the spot. Tested right in front of me. Completely legit."', author: '— Deon V., Worcester' },
-    { text: '"De Royal Grillz came to me for a home visit. Super professional, great price for my silver."', author: '— Amara K., Caledon' },
-  ];
-  let tCurrent = 0;
-  window.setTestimonial = (i) => {
-    tCurrent = i;
-    const textEl   = document.getElementById('t-text');
-    const authorEl = document.getElementById('t-author');
-    if (textEl)   textEl.textContent   = testimonials[i].text;
-    if (authorEl) authorEl.textContent = testimonials[i].author;
-    document.querySelectorAll('.t-dot').forEach((d, j) => {
-      d.classList.toggle('active', j === i);
-    });
-  };
-  if (document.getElementById('t-text')) {
-    setInterval(() => {
-      tCurrent = (tCurrent + 1) % testimonials.length;
-      window.setTestimonial(tCurrent);
-    }, 5500);
-  }
-
-});
-
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>50),{passive:true});
+const ham=document.getElementById('ham'),mob=document.getElementById('mob');
+ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open');document.body.style.overflow=mob.classList.contains('open')?'hidden':''});
+function cm(){ham.classList.remove('open');mob.classList.remove('open');document.body.style.overflow=''}
+const obs=new IntersectionObserver(es=>{es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('on'),i*70);obs.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.rv').forEach(r=>obs.observe(r));
+window.submitForm=()=>{
+  const n=document.getElementById('fname')?.value.trim(),p=document.getElementById('fphone')?.value.trim(),s=document.getElementById('fservice')?.value;
+  if(!n||!p||!s){alert('Please fill in your name, phone and select a service.');return}
+  document.getElementById('contactForm').style.display='none';
+  document.getElementById('formSuccess').style.display='block';
+};
 </script>
 </body>
 </html>
